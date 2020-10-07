@@ -84,17 +84,11 @@ h6 {
 /*=============HEADER=============*/
 .header {
 	width: 100%;
-	/* узнать и задать градиет для шапки
-    background: rgb();
-    background: -moz-linear-gradient();
-    background: -webkit-linear-gradient();
-    background: -o-linear-gradient();
-    background: -ms-linear-gradient();
-    background: linear-gradient();
-    */
-	/* задать высоту шапки
-    min-height: ;
-    */
+	background: #005BFD;
+	background: -webkit-linear-gradient(to right, #005BFD 0%, #9FD3FF 100%);
+	background: -moz-linear-gradient(to right, #005BFD 0%, #9FD3FF 100%);
+	background: linear-gradient(to right, #005BFD 0%, #9FD3FF 100%);
+    min-height: 120px;
 }
 
 .logo {
