@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>3 Column Layout</title>
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">
+            <div id="logo-container">
+                <img src="assets/img/logo.svg" height="60px" alt="" />
+            </div>
+        </a>
+    </header>
+    <div class="container">
+        <main class="center column">
+            <div class="column2 form">
+                <form action="">
+                    <h2>User details</h2>
+                    <label for="fname">Full name *</label><br>
+                    <input type="text" id="fname" name="fname" placeholder="Full name *" required><br>
+                    <label for="fbirthday">Your birthday *</label><br>
+                    <input type="date" id="fbirthday" name="fbirthday" required><br>
+                    <label for="sgender">Gender</label><br>
+                    <select name="sgender" id="sgender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select><br>
+                    <label for="scountry">Country</label><br>
+                    <select id="scountry" name="scountry">
+                        <option value="ukraine">Ukraine</option>
+                        <option value="notukraine">not Ukraine</option>
+                    </select>
+                    <div>
+                        <label for="fphone">Phone *</label><br>
+                        <input type="text" id="fphone" name="fphone" placeholder="Phone *" required><br>
+                        <small>Mobile: 094 231 234</small><br>
+                        <small>Fixed: 2123 1234</small><br>
+                    </div>
+                    
+                    <label for="tbio">Bio</label><br>
+                    <textarea name="tbio" id="tbio" cols="30" rows="10" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi cumque vel atque veritatis maiores commodi ea voluptatem."></textarea><br>
+                    <button>Submit</button>
+                </form>
+            </div>
+            <div class="column2 form">
+                <form action="">
+                    <h2>Account details</h2>
+                    <label for="fusername">Username *</label><br>
+                    <input type="text" id="fusername" name="fusername" placeholder="Username *" required><br>
+                    <label for="femail">Email *</label><br>
+                    <input type="text" id="femail" name="femail" placeholder="Email *" required><br>
+                    <label for="fpassword">Password *</label><br>
+                    <input type="password" id="fpassword" name="fpassword" placeholder="Password *" required><br>
+                    <label for="fpassword2">Confirm Password *</label><br>
+                    <input type="password" id="fpassword2" name="fpassword2" placeholder="Conform Password *" required><br>
+                    <input type="checkbox" id="cterms" name="cterms">
+                    <label for="cterms">I accept terms and conditions</label><br>
+                </form>
+            </div>
+        </main>
+        <nav class="left column">
+            <h3>Left heading</h3>
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+            </ul>
+            <h3>Left heading</h3>
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+            </ul>
+        </nav>
+        <div class="right column">
+            <h3>Right heading</h3>
+            <p></p>
+        </div>
+    </div>
+    <div class="footer-wrapper">
+        <footer class="footer">
+            <a href="index.html" class="logo">
+                <div id="logo-container">
+                    <img src="assets/img/logo.svg" height="40px" alt="" />
+                </div>
+            </a>
+        </footer>
+    </div>
+</body>
+
+</html>

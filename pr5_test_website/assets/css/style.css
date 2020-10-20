@@ -1,0 +1,5 @@
+.form input,
+.form select {
+    border: none;
+    border-bottom: 2px gray solid;
+}
