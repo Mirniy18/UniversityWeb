@@ -1,95 +1,95 @@
 body {
-   min-width: 630px;
-   margin: 0;
-   padding: 0;
-   font-family: Sans-serif;
-   line-height: 1.5em;
+	min-width: 630px;
+	margin: 0;
+	padding: 0;
+	font-family: Sans-serif;
+	line-height: 1.5em;
 }
 
 #logo-container {
-   margin: 10px;
+	margin: 10px;
 }
 
 .header {
-   height: 80px;
+	height: 80px;
 }
 
 .logo {
-   display: inline-block;
-   padding-left: 200px;
-   align-self: center;
-   vertical-align: bottom;
+	display: inline-block;
+	padding-left: 200px;
+	align-self: center;
+	vertical-align: bottom;
 }
 
 .column2 {
-   width: 50%;
-   float: left;
+	width: 50%;
+	float: left;
 }
 
 .container {
-   padding-left: 200px;
-   padding-right: 190px;
-   overflow: hidden;
+	padding-left: 200px;
+	padding-right: 190px;
+	overflow: hidden;
 }
 
 .container .column {
-   position: relative;
-   float: left;
-   padding-bottom: 1001em;
-   margin-bottom: -1000em;
-   padding-top: 1em;
+	position: relative;
+	float: left;
+	padding-bottom: 1001em;
+	margin-bottom: -1000em;
+	padding-top: 1em;
 }
 
 .center {
-   padding: 10px 20px;
-   width: 100%;
-   background: #fff;
+	padding: 10px 20px;
+	width: 100%;
+	background: #fff;
 }
 
 .left {
-   width: 180px;
-   padding: 0 10px;
-   right: 240px;
-   margin-left: -100%;
-   background: #DAE9BC;
+	width: 180px;
+	padding: 0 10px;
+	right: 240px;
+	margin-left: -100%;
+	background: #DAE9BC;
 }
 
 .right {
-   width: 130px;
-   padding: 0 10px;
-   margin-right: -100%;
-   background: #F7FDEB;
+	width: 130px;
+	padding: 0 10px;
+	margin-right: -100%;
+	background: #F7FDEB;
 }
 
 .footer {
-   clear: both;
-   height: 60px;
+	clear: both;
+	height: 60px;
 }
 
 .footer-wrapper {
-   float: left;
-   position: relative;
-   width: 100%;
-   background: #fff;
+	float: left;
+	position: relative;
+	width: 100%;
+	background: #fff;
 }
 
 p {
-   color: #555;
+	color: #555;
 }
 
 nav ul {
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 nav ul a {
-   color: green;
-   text-decoration: none;
+	color: green;
+	text-decoration: none;
 }
 
 .header, .footer {
-   font-size: large;
-   padding: 0.3em;
-   background: #BCCE98;
+	font-size: large;
+	padding: 0.3em;
+	background: #BCCE98;
 }
