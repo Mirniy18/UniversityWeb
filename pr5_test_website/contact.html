@@ -31,20 +31,28 @@
                         <option value="female">Female</option>
                         <option value="other">Other</option>
                     </select><br>
-                    <label for="scountry">Country</label><br>
-                    <select id="scountry" name="scountry">
-                        <option value="ukraine">Ukraine</option>
-                        <option value="notukraine">not Ukraine</option>
-                    </select>
-                    <div>
-                        <label for="fphone">Phone *</label><br>
-                        <input type="text" id="fphone" name="fphone" placeholder="Phone *" required><br>
-                        <small>Mobile: 094 231 234</small><br>
-                        <small>Fixed: 2123 1234</small><br>
+                    <div id="form-inner-col-right">
+                        <label for="scountry">Country</label><br>
+                        <select id="scountry" name="scountry">
+                            <option value="ukraine">Ukraine</option>
+                            <option value="notukraine">not Ukraine</option>
+                        </select>
                     </div>
+                    <div id="form-inner-col-left">
+                        <label for="fphone">Phone *</label><br>
+                        <input class="has-bottom-label" type="tel" id="fphone" name="fphone" placeholder="Phone *" required>
+                        <div class="label">
+                            <small>Mobile: 094 231 234</small>
+                            <small style="float: right;">Fixed: 2123 1234</small>
+                        </div>
+                    </div><br>
                     
                     <label for="tbio">Bio</label><br>
-                    <textarea name="tbio" id="tbio" cols="30" rows="10" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi cumque vel atque veritatis maiores commodi ea voluptatem."></textarea><br>
+                    <textarea class="has-bottom-label" name="tbio" id="tbio" cols="30" rows="10" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi cumque vel atque veritatis maiores commodi ea voluptatem."></textarea><br>
+                    <div class="label">
+                        <small>Tell us about yourself</small>
+                        <small style="float: right;">151 / 256</small>
+                    </div>
                     <button>Submit</button>
                 </form>
             </div>
@@ -61,6 +69,7 @@
                     <input type="password" id="fpassword2" name="fpassword2" placeholder="Conform Password *" required><br>
                     <input type="checkbox" id="cterms" name="cterms">
                     <label for="cterms">I accept terms and conditions</label><br>
+                    <button>Submit</button>
                 </form>
             </div>
         </main>
