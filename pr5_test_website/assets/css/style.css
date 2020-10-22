@@ -3,7 +3,27 @@
     border: none;
     border-bottom: 2px lightgray solid;
 }
+
 .form label,
 .form div[class=label] {
     color: gray;
+}
+
+.form button {
+	color: gray;
+	background-color: lightgray;
+	border-radius: 0;
+}
+
+.table th,
+.table td {
+    border: 2px solid goldenrod;
+    border-spacing: 0;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.table th {
+    background-color: gray;
+    color: #dcdcdc
 }

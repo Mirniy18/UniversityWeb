@@ -96,6 +96,7 @@ nav ul a {
 	background: #BCCE98;
 }
 
+/*Contacts*/
 .form input[type=text],
 .form input[type=date],
 .form input[type=password],
@@ -121,4 +122,22 @@ nav ul a {
 #form-inner-col-left {
 	width: 80%;
 	float: left;
+}
+
+#fphone {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.form button {
+	margin-top: 20px;
+	min-height: 30px;
+	min-width: 80px;
+	border: 0;
+}
+
+/*Table*/
+.table {
+	border-collapse: collapse;
+	width: 100%;
 }
