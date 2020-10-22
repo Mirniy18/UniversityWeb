@@ -1,3 +1,4 @@
+/*Contact*/
 .form input,
 .form select {
     border: none;
@@ -15,6 +16,12 @@
 	border-radius: 0;
 }
 
+/*Media*/
+audio, video {
+    outline-width: 0;
+}
+
+/*Table*/
 .table th,
 .table td {
     border: 2px solid goldenrod;
@@ -26,4 +33,26 @@
 .table th {
     background-color: gray;
     color: #dcdcdc
+}
+
+/*About*/
+#about-text-header {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    font-weight: bold;
+    color: #1e1e1e;
+}
+
+#about-text-body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    font-weight: normal;
+    color: darkgray;
+}
+
+#about-text-footer {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+    font-weight: lighter;
+    color: green;
 }
