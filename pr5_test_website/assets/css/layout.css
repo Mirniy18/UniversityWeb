@@ -133,6 +133,10 @@ input[type=date] {
 	margin-bottom: 5px;
 }
 
+.form textarea {
+	resize: none;
+}
+
 .form button {
 	margin-top: 20px;
 	min-height: 30px;
