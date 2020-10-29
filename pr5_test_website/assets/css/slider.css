@@ -100,3 +100,22 @@ a.slider {
 	-webkit-animation: slideOutRight 1s forwards;
 	animation: slideOutRight 1s forwards;
 }
+
+.slideOverlay {
+	margin-left: 20px;
+}
+
+.slider-button {
+	margin: 10px;
+	color: #fff;
+	background-color: #4CA74C;
+	border-radius: 20px;
+	border-style: none;
+	outline: 0;
+	font-size: medium;
+	padding: 4px;
+}
+
+#mySliderHref {
+	color: black
+}

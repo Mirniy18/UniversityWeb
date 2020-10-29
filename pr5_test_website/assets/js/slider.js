@@ -12,21 +12,25 @@ function Slide(title, subtitle, background, link) {
 	slideArray.push(this);
 }
 
-// ви можете зробити скільки завгодно слайдів
-
 var slide1 = new Slide(
-	"Google",
-	"Google 1",
-	"https://via.placeholder.com/500x150",
-	"http://google.com"
+	"Dessert",
+	"Sahara",
+	"public/images/dessert.jpg",
+	"https://en.wikipedia.org/wiki/Sahara"
 );
 
-
 var slide2 = new Slide(
-	"Yahoo",
-	"yahoo not",
-	"https://via.placeholder.com/500x150",
-	"http://yahoo.com"
+	"Sea",
+	"Caribbean Sea",
+	"public/images/sea.jpg",
+	"https://en.wikipedia.org/wiki/Caribbean_Sea"
+);
+
+var slide3 = new Slide(
+	"Mountains",
+	"Mount Whitney",
+	"public/images/mountains.jpg",
+	"https://en.wikipedia.org/wiki/Mount_Whitney"
 );
 
 
@@ -44,6 +48,7 @@ function buildSlider() {
 	}
 
 	document.getElementById("mySlider").innerHTML = myHTML;
+	document.getElementById("mySliderHref").href = slideArray[currentSlideIndex].link;
 	document.getElementById("slide" + currentSlideIndex).style.left = 0;
 }
 
@@ -63,6 +68,8 @@ function prevSlide() {
 	document.getElementById("slide" + nextSlideIndex).setAttribute("class", "singleSlide slideInLeft");
 	document.getElementById("slide" + currentSlideIndex).setAttribute("class", "singleSlide slideOutRight");
 
+	document.getElementById("mySliderHref").href = slideArray[nextSlideIndex].link;
+
 	currentSlideIndex = nextSlideIndex;
 }
 
@@ -79,6 +86,8 @@ function nextSlide() {
 
 	document.getElementById("slide" + nextSlideIndex).setAttribute("class", "singleSlide slideInRight");
 	document.getElementById("slide" + currentSlideIndex).setAttribute("class", "singleSlide slideOutLeft");
+
+	document.getElementById("mySliderHref").href = slideArray[nextSlideIndex].link;
 
 	currentSlideIndex = nextSlideIndex;
 }
