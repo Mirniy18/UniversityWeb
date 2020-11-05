@@ -19,7 +19,15 @@
     <div class="container">
         <main class="center column">
             <h1>Paint</h1>
-            <canvas id="draw" width="490" height="220"></canvas>
+            <canvas id="draw" width="490" height="220"></canvas><br>
+            <button onclick="canvas_clear()">Clear</button>
+            <input type="color" id="input-color"/>
+            <input list="colors" id="list-color"/>
+            <datalist id="colors">
+                <option value="Red"></option>
+                <option value="#00FF00"></option>
+            </datalist>
+
         </main>
         <nav class="left column">
             <h3>Left heading</h3>
@@ -48,6 +56,8 @@
             </a>
         </footer>
     </div>
+
+    <script src="assets/js/paint.js"></script>
 </body>
 
 </html>
