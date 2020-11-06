@@ -17,18 +17,30 @@
         </a>
     </header>
     <div class="container">
-        <main class="center column">
+        <main class="center column paint">
             <h1>Paint</h1>
-            <canvas id="draw" width="490" height="220"></canvas><br>
-            <button onclick="canvas_clear()">Clear</button>
-            <button onclick="canvas_undo()">Undo</button>
+            <canvas id="draw" width="490" height="220" style="border: 1px solid black;"></canvas><br>
+            <span>Color:</span>
             <input type="color" id="input-color"/>
-            <input list="colors" id="list-color"/>
+            <input list="colors" id="list-color" style="display: none;"/>
             <datalist id="colors">
                 <option value="Red"></option>
                 <option value="#00FF00"></option>
             </datalist>
-
+            <span>Thickness:</span>
+            <input type="range" id="range-width" min="1" max="32" value="8"/>
+            <button id="btn-undo" onclick="canvas_undo()" disabled>Undo</button>
+            <button id="btn-clear" onclick="canvas_clear()" disabled>Clear</button><br>
+            <span>Background:</span>
+            <input type="file" id="file-background" onchange="set_background_file()"><br>
+            <span>Or choose URL:</span>
+            <form action="JavaScript:set_background_url()">
+                <input type="url" id="url-background" placeholder="https://example.com/image.jpg" required>
+                <button type="submit">Set</button>
+            </form>
+            <button id="btn-bg-clear" onclick="background_clear()" disabled>Remove background</button>
+            <button id="btn-save" onclick="save()">Save as file</button>
+            <a id="save-lnk"></a>
         </main>
         <nav class="left column">
             <h3>Left heading</h3>

@@ -149,3 +149,25 @@ input[type=date] {
 	border-collapse: collapse;
 	width: 100%;
 }
+
+
+/*Paint*/
+.paint input:not([type=file]),
+.paint button {
+	font-size: medium;
+    padding: 1px 5px;
+}
+
+.paint input[type=url] {
+    width: 250px;
+}
+
+#range-width {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 150px;
+}
+
+#list-color {
+    width: 100px;
+}

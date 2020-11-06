@@ -56,3 +56,11 @@ audio, video {
     font-weight: lighter;
     color: green;
 }
+
+.paint input:not([type=file]),
+.paint button {
+	background-color: lightgray;
+	border-radius: 5px;
+	border-style: none;
+	outline: 0;
+}
