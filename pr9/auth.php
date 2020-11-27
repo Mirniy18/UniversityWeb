@@ -4,10 +4,12 @@ if (array_key_exists('login', $_POST)) {
 	$_SESSION['login'] = $_POST['login'];
 	$_SESSION['password'] = $_POST['password'];
 
-	if ($_SESSION['login'] == 'admin' && $_SESSION['password'] == '1111') {
+	include('db.php');
+
+	if (hasUser($_SESSION['login'], $_SESSION['password'])) {
 		$_SESSION['auth'] = true;
 		header('location: restricted.php');
-	} else {		
+	} else {
 		echo 'Invalid login or password';
 	}
 } else {

@@ -1,21 +1,33 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "testdb";
+$servername = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'testdb';
 
 $conn = new mysqli($servername, $username, $password, $database);
 
 if ($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
+	die('Connection to DB failed: ' . $conn->connect_error);
 }
-echo "Connected successfully";
 
-$sql = "SELECT id, login, password FROM users";
-$result = $conn->query($sql);
+function getUsers()
+{
+	global $conn;
+	$sql = 'SELECT id, login, password FROM users';
+	return $conn->query($sql);
+}
 
-if ($result->num_rows > 0) {
-	while ($row = $result->fetch_assoc()) {
-		echo "id: " . $row["id"];
+function hasUser($login, $password)
+{
+	$users = getUsers();
+
+	if ($users->num_rows > 0) {
+		while ($row = $users->fetch_assoc()) {
+			if ($login == $row['login']) {
+				return $password == $row['password'];
+			}
+		}
+
+		return false;
 	}
 }
