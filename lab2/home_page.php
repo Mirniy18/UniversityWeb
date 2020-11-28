@@ -17,7 +17,7 @@
 			</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a class="waves-effect waves-light btn blue accent-3">Sign In</a></li>
-				<li><a class="waves-effect waves-light btn blue accent-3">Sign Up</a></li>
+				<li><a href="register_page.php" class="waves-effect waves-light btn blue accent-3">Sign Up</a></li>
 			</ul>
 		</div>
 	</nav>

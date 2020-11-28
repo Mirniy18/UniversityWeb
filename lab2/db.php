@@ -28,3 +28,10 @@ function createTable() {
 		}
 	}
 }
+
+function getRoles() {
+	global $conn;
+	$sql = 'SELECT * FROM roles';
+	
+	return $conn->query($sql);
+}
