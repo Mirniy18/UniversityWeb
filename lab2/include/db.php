@@ -1,4 +1,6 @@
 <?php
+
+
 $servername = 'localhost';
 $username = 'root';
 $password = '';
@@ -19,7 +21,7 @@ function createTable() {
 		echo '<tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Login</th><th>Role</th></tr>';
 		while ($user = $users->fetch_assoc()) {
 			echo '<tr>';
-			echo '<td><a href="user.php">' . $user['id'] . '</a></td>';
+			echo '<td><a href="user_page.php?id=' . $user['id'] . '">' . $user['id'] . '</a></td>';
 			echo '<td>' . $user['first_name'] . '</td>';
 			echo '<td>' . $user['last_name'] . '</td>';
 			echo '<td>' . $user['login'] . '</td>';
