@@ -17,9 +17,6 @@
 			<a href="index.php" class="brand-logo">
 				<img src="assets/img/logo.svg" height="60px" alt="Logo" style="padding: 4px;" />
 			</a>
-			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="index.php" class="waves-effect waves-light btn blue accent-3">Back</a></li>
-			</ul>
 		</div>
 	</nav>
 	<div class="container" style="padding: 64px 20% 0 20%;">
@@ -40,7 +37,7 @@
 				<select name="id_role">
 					<option value="" disabled selected>Choose your role</option>
 					<?php
-					require_once 'db.php';
+					require_once 'include/db.php';
 					$roles = getRoles();
 					if ($roles->num_rows > 0) {
 						while ($role = $roles->fetch_assoc()) {
@@ -62,9 +59,9 @@
 			<input type="submit" value="Sign Up" class="btn" style="float: right;">
 		</form>
 		<?php
-		if (count($_POST) > 0) {
-			include('register.php');
-		}
+			if (count($_POST) > 0) {
+				include('include/register.php');
+			}
 		?>
 	</div>
 

@@ -12,10 +12,10 @@
 <body>
 	<nav>
 		<div class="nav-wrapper blue lighten-3">
-			<a href="index.php" class="brand-logo">
+			<a href="index.php" class="brand-logo hide-on-med-and-down">
 				<img src="assets/img/logo.svg" height="60px" alt="Logo" style="padding: 4px;" />
 			</a>
-			<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<ul id="nav-mobile" class="right">
 				<li><a class="waves-effect waves-light btn blue accent-3">Sign In</a></li>
 				<li><a href="register_page.php" class="waves-effect waves-light btn blue accent-3">Sign Up</a></li>
 			</ul>
@@ -24,7 +24,7 @@
 	<div class="container" style="padding-top: 64px;">
 		<table class="striped responsive-table blue lighten-4">
 			<?php
-			require_once 'db.php';
+			require_once 'include/db.php';
 
 			createTable();
 			?>
