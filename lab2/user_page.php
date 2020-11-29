@@ -43,7 +43,7 @@
 			<?php if ($user['photo']): ?>
 				<img src="public/images/<?php echo $user['photo'] ?>" width="90%" alt="Photo" style="padding: 4px;" />
 			<?php else: ?>
-				<img src="assets/img/logo.svg" width="90%" alt="Photo" style="padding: 4px;" />
+				<img src="assets/img/Portrait_Placeholder.png" width="90%" alt="Photo" style="padding: 4px;" />
 			<?php endif ?>
 		</div>
 		<div class="container" style="width: 50%; float: left; box-sizing: border-box;">
@@ -52,6 +52,12 @@
 			<h5>Login: <?php echo $user['login'] ?></h5>
 			<h5>Role: <?php echo $user['title'] ?></h5>
 		</div>
+		<?php
+		session_start();
+		if (array_key_exists('id', $_SESSION) && ($_SESSION['id'] == $_GET['id'] || $_SESSION['id_role'] == 1)):
+		?>
+			<a href="user_edit_page.php?id=<?php echo $_GET['id'] ?>" class="waves-effect waves-light btn blue accent-3" style="float: right;">Edit</a>
+		<?php endif ?>
 	</div>
 
 </body>

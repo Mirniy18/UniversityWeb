@@ -46,7 +46,7 @@
 			<?php if ($user['photo']): ?>
 				<img src="public/images/<?php echo $user['photo'] ?>" width="90%" alt="Photo" style="padding: 4px;" />
 			<?php else: ?>
-				<img src="assets/img/logo.svg" width="90%" alt="Photo" style="padding: 4px;" />
+				<img src="assets/img/Portrait_Placeholder.png" width="90%" alt="Photo" style="padding: 4px;" />
 			<?php endif ?>
 			<form id="form-upload-photo" action="upload_photo.php?id=<?php echo $_GET['id'] ?>" method="POST" enctype="multipart/form-data">
 				<button id="btn-upload-photo" class="btn waves-effect waves-light" type="button" style="width: 90%;">Change photo</button>
