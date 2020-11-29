@@ -22,7 +22,7 @@
 
 	<?php
 		session_start();
-		if (!array_key_exists('auth', $_SESSION) || !($_SESSION['id'] == $_GET['id'] || $_SESSION['id_role'] == 1)) {
+		if (!array_key_exists('id', $_SESSION) || !($_SESSION['id'] == $_GET['id'] || $_SESSION['id_role'] == 1)) {
 			echo 'Restricted access.';
 			// exit();
 		}
@@ -30,11 +30,15 @@
 		require_once 'include/db.php';
 		$stmt = $conn->prepare('SELECT id, first_name, last_name, login, id_role FROM users WHERE users.id = ?;');
 		$stmt->bind_param('i', $_GET['id']);
-		$stmt->execute();
-		$res = $stmt->get_result();
-		$user = $res->fetch_assoc();
-		if (!is_array($user)) {
-			echo 'Invalid user id.';
+		if ($stmt->execute()) {
+			$user = $stmt->get_result()->fetch_assoc();
+			if (!is_array($user)) {
+				echo 'Invalid user id.';
+				exit();
+			}
+		} else {
+			echo 'Database error: ';
+			echo mysqli_error($conn);
 			exit();
 		}
 	?>

@@ -23,11 +23,17 @@
 	$sql = 'SELECT users.id, users.first_name, users.last_name, users.login, users.photo, roles.title FROM users LEFT JOIN roles ON users.id_role = roles.id WHERE users.id = ?;';
 	$stmt = $conn->prepare($sql);
 	$stmt->bind_param('i', $_GET['id']);
-	$stmt->execute();
-	$res = $stmt->get_result();
-	$user = $res->fetch_assoc();
-	if (!is_array($user)) {
-		echo 'Invalid user id';
+	
+	if ($stmt->execute()) {
+		$res = $stmt->get_result();
+		$user = $res->fetch_assoc();
+		if (!is_array($user)) {
+			echo 'Invalid user id';
+			exit();
+		}
+	} else {
+		echo 'Database error: ';
+		echo mysqli_error($conn);
 		exit();
 	}
 	?>
