@@ -19,7 +19,17 @@ if ($_SESSION['id'] == $_GET['id'] || $_SESSION['id_role'] == 1) {
 			$stmt = $conn->prepare('UPDATE users SET first_name = ?, last_name = ?, password = ?, login = ? WHERE id = ?;');
 			$stmt->bind_param('ssssi', $_POST['first_name'], $_POST['last_name'], $_POST['password'], $_POST['login'], $_GET['id']);
 		}
-		if (!$stmt->execute()) {
+
+		if ($stmt->execute()) {
+			if ($_SESSION['id'] == $_GET['id']) {
+				$_SESSION['login'] = $_POST['login'];
+				if ($_SESSION['id_role'] == 1) {
+					$_SESSION['id_role'] = $_POST['id_role'];
+				}
+			}
+
+			header('location: user_page.php?id=' . $_GET['id']);
+		} else {
 			echo 'Database error: ';
 			echo mysqli_error($conn);
 		}
@@ -28,6 +38,8 @@ if ($_SESSION['id'] == $_GET['id'] || $_SESSION['id_role'] == 1) {
 
 		if ($_SESSION['id'] == $_GET['id']) {
 			header('location: sign_out.php');
+		} else {
+			header('location: index.php');
 		}
 	}
 }

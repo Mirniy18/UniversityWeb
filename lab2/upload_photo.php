@@ -50,7 +50,7 @@ if (move_uploaded_file($_FILES['file_photo']['tmp_name'], $target_file)) {
     $stmt = $conn->prepare('UPDATE users SET photo = ? WHERE id = ?;');
     $stmt->bind_param('ss', $file_name, $_GET['id']);
     $stmt->execute();
-    header('location: index.php');
+    header('location: user_page.php?id=' . $_GET['id']);
 } else {
     echo 'Sorry, there was an error uploading your file.<br>';
 }

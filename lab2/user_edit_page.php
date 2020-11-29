@@ -70,13 +70,17 @@
 
 				<?php if (array_key_exists('id_role', $_SESSION) && $_SESSION['id_role'] == 1): ?>
 				<div class="input-field col s3">
-					<select name="id_role" value="<?php echo $user['id_role'] ?>" required>
+					<select name="id_role" required>
 						<option value="" disabled>Choose your role</option>
 						<?php
 						$roles = getRoles();
 						if ($roles->num_rows > 0) {
 							while ($role = $roles->fetch_assoc()) {
-								echo '<option value="' . $role['id'] . '">' . $role['title'] . '</option>';
+								if ($role['id'] == $user['id_role']) {
+									echo '<option value="' . $role['id'] . '" selected>' . $role['title'] . '</option>';
+								} else {
+									echo '<option value="' . $role['id'] . '">' . $role['title'] . '</option>';
+								}
 							}
 						}
 						?>
