@@ -43,6 +43,10 @@ session_start();
 			createTable();
 			?>
 		</table>
+
+		<?php if (array_key_exists('id_role', $_SESSION) && $_SESSION['id_role'] == 1): ?>
+		<a href="register_page.php?add=1" class="waves-effect waves-light btn blue accent-3" style="margin-top: 16px; float: right;">Add user</a>
+		<?php endif ?>
 	</div>
 
 </body>

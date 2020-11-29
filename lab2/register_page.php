@@ -56,7 +56,11 @@
 				<input id="password2" name="password2" type="password" class="validate" minlength="6">
 				<label for="password2">Confirm Password</label>
 			</div>
-			<input type="submit" value="Sign Up" class="btn" style="float: right;">
+			<?php if (array_key_exists('add', $_GET)): ?>
+				<input type="submit" value="Add user" class="btn" name="add" style="float: right;">
+			<?php else: ?>
+				<input type="submit" value="Sign Up" class="btn" name="sign_up" style="float: right;">
+			<?php endif ?>
 		</form>
 		<?php
 			if (count($_POST) > 0) {
