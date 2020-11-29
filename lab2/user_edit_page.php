@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en">
 
-<!-- TODO form: add required and checking -->
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -24,7 +22,7 @@
 		session_start();
 		if (!array_key_exists('id', $_SESSION) || !($_SESSION['id'] == $_GET['id'] || $_SESSION['id_role'] == 1)) {
 			echo 'Restricted access.';
-			// exit();
+			exit();
 		}
 
 		require_once 'include/db.php';
@@ -49,21 +47,23 @@
 			<button class="btn" type="button" style="width: 90%;">Change photo</button>
 		</div>
 		<div class="container" style="width: 80%; float: left; box-sizing: border-box;">
-			<form action="" method="POST">
+			<form action="" onsubmit="return validate_passwords(true)" method="POST">
 				<div class="input-field col s3">
-					<input id="first-name" name="first_name" type="text" class="validate" value="<?php echo $user['first_name'] ?>">
+					<input id="first-name" name="first_name" type="text" class="validate" value="<?php echo $user['first_name'] ?>" required>
 					<label for="first-name">First name</label>
 				</div>
 				<div class="input-field col s3">
-					<input id="last-name" name="last_name" type="text" class="validate" value="<?php echo $user['last_name'] ?>">
+					<input id="last-name" name="last_name" type="text" class="validate" value="<?php echo $user['last_name'] ?>" required>
 					<label for="last-name">Last name</label>
 				</div>
 				<div class="input-field col s3">
-					<input id="login" name="login" type="text" class="validate" value="<?php echo $user['login'] ?>">
+					<input id="login" name="login" type="text" class="validate" value="<?php echo $user['login'] ?>" required>
 					<label for="login">Login</label>
 				</div>
+
+				<?php if (array_key_exists('id_role', $_SESSION) && $_SESSION['id_role'] == 1): ?>
 				<div class="input-field col s3">
-					<select name="id_role" value="<?php echo $user['id_role'] ?>">
+					<select name="id_role" value="<?php echo $user['id_role'] ?>" required>
 						<option value="" disabled>Choose your role</option>
 						<?php
 						$roles = getRoles();
@@ -76,18 +76,22 @@
 					</select>
 					<label>Role</label>
 				</div>
+				<?php endif ?>
+
 				<div class="input-field col s3">
-					<input id="password" name="password" type="password" class="validate" minlength="6">
+					<input id="password" name="password" type="password" class="validate" minlength="6" required>
 					<label for="password">Password</label>
 				</div>
 				<div class="input-field col s3">
-					<input id="password2" name="password2" type="password" class="validate" minlength="6">
+					<input id="password2" name="password2" type="password" class="validate" minlength="6" required>
 					<label for="password2">Confirm Password</label>
 				</div>
 				<div style="float: right;">
 					<input type="submit" value="Edit" name="edit" class="btn">
-					<input type="submit" value="Delete" name="delete" class="btn">
 				</div>
+			</form>
+			<form action="" method="POST">
+				<input type="submit" value="Delete" name="delete" class="btn red" style="float: right; margin-right: 10px;">
 			</form>
 			<?php
 				if (count($_POST) > 0) {
@@ -105,5 +109,7 @@
 		var instances = M.FormSelect.init(elems, '');
 	});
 </script>
+
+<script src="assets/js/passwords_validation.js"></script>
 
 </html>

@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en">
 
- <!-- TODO form: add required and checking -->
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -20,21 +18,21 @@
 		</div>
 	</nav>
 	<div class="container" style="padding: 64px 20% 0 20%;">
-		<form action="" method="POST">
+		<form action="" onsubmit="return validate_passwords(true)" method="POST">
 			<div class="input-field col s3">
-				<input id="first-name" name="first_name" type="text" class="validate">
-				<label for="first-name">First name</label>
+				<input id="first-name" name="first_name" type="text" class="validate" required>
+				<label for="first-name">First name *</label>
 			</div>
 			<div class="input-field col s3">
-				<input id="last-name" name="last_name" type="text" class="validate">
-				<label for="last-name">Last name</label>
+				<input id="last-name" name="last_name" type="text" class="validate" required>
+				<label for="last-name">Last name *</label>
 			</div>
 			<div class="input-field col s3">
-				<input id="login" name="login" type="text" class="validate">
-				<label for="login">Login</label>
+				<input id="login" name="login" type="text" class="validate" required>
+				<label for="login">Login *</label>
 			</div>
 			<div class="input-field col s3">
-				<select name="id_role">
+				<select id="role" name="id_role" class="validate" required>
 					<option value="" disabled selected>Choose your role</option>
 					<?php
 					require_once 'include/db.php';
@@ -46,15 +44,15 @@
 					}
 					?>
 				</select>
-				<label>Role</label>
+				<label>Role *</label>
 			</div>
 			<div class="input-field col s3">
-				<input id="password" name="password" type="password" class="validate" minlength="6">
-				<label for="password">Password</label>
+				<input id="password" name="password" type="password" class="validate" minlength="6" required>
+				<label for="password">Password *</label>
 			</div>
 			<div class="input-field col s3">
-				<input id="password2" name="password2" type="password" class="validate" minlength="6">
-				<label for="password2">Confirm Password</label>
+				<input id="password2" name="password2" type="password" class="validate" minlength="6" required>
+				<label for="password2">Confirm Password *</label>
 			</div>
 			<?php if (array_key_exists('add', $_GET)): ?>
 				<input type="submit" value="Add user" class="btn" name="add" style="float: right;">
@@ -77,5 +75,7 @@
 		var instances = M.FormSelect.init(elems, '');
 	});
 </script>
+
+<script src="assets/js/passwords_validation.js"></script>
 
 </html>
