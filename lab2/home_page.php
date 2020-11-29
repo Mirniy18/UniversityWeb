@@ -9,6 +9,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
+<?php
+session_start();
+
+// $_SESSION['id'] = 1; $_SESSION['login'] = 'Donald44'; $_SESSION['id_role'] = 1; // TODO remove
+?>
+
 <body>
 	<nav>
 		<div class="nav-wrapper blue lighten-3">
@@ -16,11 +22,19 @@
 				<img src="assets/img/logo.svg" height="60px" alt="Logo" style="padding: 4px;" />
 			</a>
 			<ul id="nav-mobile" class="right">
-				<li><a class="waves-effect waves-light btn blue accent-3">Sign In</a></li>
-				<li><a href="register_page.php" class="waves-effect waves-light btn blue accent-3">Sign Up</a></li>
+				<?php if (array_key_exists('id', $_SESSION)): ?>
+					<li><a href="user_edit_page.php?id=<?php echo $_SESSION['id']; ?>" class="waves-effect waves-light btn blue accent-3"><?php echo $_SESSION['login']; ?></a></li>
+					<li><a href="sign_out.php" class="waves-effect waves-light btn blue accent-3">Sign Out</a></li>
+				<?php else: ?>
+					<li><a href="#modal_sign_in" class="waves-effect waves-light btn modal-trigger blue accent-3">Sign In</a></li>
+					<li><a href="register_page.php" class="waves-effect waves-light btn blue accent-3">Sign Up</a></li>
+				<?php endif ?>
 			</ul>
 		</div>
 	</nav>
+	
+	<?php include 'include/login_modal.php' ?>
+
 	<div class="container" style="padding-top: 64px;">
 		<table class="striped responsive-table blue lighten-4">
 			<?php
@@ -32,5 +46,12 @@
 	</div>
 
 </body>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var elems = document.querySelectorAll('.modal');
+		var instances = M.Modal.init(elems, '');
+	});
+</script>
 
 </html>
