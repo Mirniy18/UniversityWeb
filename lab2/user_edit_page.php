@@ -26,7 +26,7 @@
 		}
 
 		require_once 'include/db.php';
-		$stmt = $conn->prepare('SELECT id, first_name, last_name, login, id_role FROM users WHERE users.id = ?;');
+		$stmt = $conn->prepare('SELECT id, first_name, last_name, login, id_role, photo FROM users WHERE users.id = ?;');
 		$stmt->bind_param('i', $_GET['id']);
 		if ($stmt->execute()) {
 			$user = $stmt->get_result()->fetch_assoc();
@@ -43,8 +43,15 @@
 
 	<div class="container" style="padding: 64px 0 0 0;">
 		<div style="width: 20%; float: left; box-sizing: border-box;">
-			<img src="assets/img/logo.svg" width="90%" alt="Photo" style="padding: 4px;" />
-			<button class="btn" type="button" style="width: 90%;">Change photo</button>
+			<?php if ($user['photo']): ?>
+				<img src="public/images/<?php echo $user['photo'] ?>" width="90%" alt="Photo" style="padding: 4px;" />
+			<?php else: ?>
+				<img src="assets/img/logo.svg" width="90%" alt="Photo" style="padding: 4px;" />
+			<?php endif ?>
+			<form id="form-upload-photo" action="upload_photo.php?id=<?php echo $_GET['id'] ?>" method="POST" enctype="multipart/form-data">
+				<button id="btn-upload-photo" class="btn waves-effect waves-light" type="button" style="width: 90%;">Change photo</button>
+				<input id="file-photo" type="file" name="file_photo" style="display: none;" required>
+			</form>
 		</div>
 		<div class="container" style="width: 80%; float: left; box-sizing: border-box;">
 			<form action="" onsubmit="return validate_passwords(true)" method="POST">
@@ -94,7 +101,7 @@
 				<input type="submit" value="Delete" name="delete" class="btn red" style="float: right; margin-right: 10px;">
 			</form>
 			<?php
-				if (count($_POST) > 0) {
+				if (count($_POST) > 0 && (array_key_exists('edit', $_POST) || array_key_exists('delete', $_POST))) {
 					include('include/user_edit.php');
 				}
 			?>
@@ -111,5 +118,6 @@
 </script>
 
 <script src="assets/js/passwords_validation.js"></script>
+<script src="assets/js/photo_upload.js"></script>
 
 </html>

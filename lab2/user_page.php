@@ -40,7 +40,11 @@
 
 	<div class="container" style="padding: 64px 0 0 0;">
 		<div style="width: 50%; float: left; box-sizing: border-box;">
-			<img src="public/images/<?php echo $user['photo'] ?>" width="90%" alt="Photo" style="padding: 4px;" />
+			<?php if ($user['photo']): ?>
+				<img src="public/images/<?php echo $user['photo'] ?>" width="90%" alt="Photo" style="padding: 4px;" />
+			<?php else: ?>
+				<img src="assets/img/logo.svg" width="90%" alt="Photo" style="padding: 4px;" />
+			<?php endif ?>
 		</div>
 		<div class="container" style="width: 50%; float: left; box-sizing: border-box;">
 			<h5>First name: <?php echo $user['first_name'] ?></h5>
